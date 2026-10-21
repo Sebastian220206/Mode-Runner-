@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b091a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Mode Runner — Synesthetic Pitch Climber</title>
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- 2.5D Isometric Canvas -->
+      <canvas id="scene-canvas"></canvas>
+
+      <!-- Heads Up Display (HUD) -->
+      <div class="hud-layer">
+        <!-- Top Section -->
+        <div class="hud-top">
+          <div class="top-bar">
+            <div class="brand-badge">MODE RUNNER</div>
+            <div class="top-actions">
+              <button id="btn-sound" class="icon-btn" title="Toggle Sound">🔊</button>
+              <button id="btn-map" class="icon-btn" title="Mastery Map">🗺️</button>
+              <button id="btn-daily" class="icon-btn" title="Daily Run">📅</button>
+            </div>
+          </div>
+
+          <div class="challenge-banner">
+            <div id="challenge-title" class="challenge-title">Build D Dorian</div>
+            <div id="challenge-sub" class="challenge-sub">Bioluminescent Canopy · Brightness 0.5</div>
+            <div id="scale-ribbon" class="scale-ribbon">
+              <!-- Rendered dynamically: 8 notes + degrees -->
+            </div>
+          </div>
+
+          <div id="silent-hint" class="silent-banner" style="display: none;">
+            <span>🔇 Sound is muted — Visual synesthesia mode active</span>
+          </div>
+        </div>
+
+        <!-- Bottom Controls -->
+        <div class="hud-bottom">
+          <div id="combo-display" class="combo-badge" style="display: none;">RESONANCE x1</div>
+
+          <div class="thumb-controls">
+            <button id="btn-half" class="step-btn half">
+              <span class="btn-title">HALF</span>
+              <span class="btn-sub">1 Semitone</span>
+              <span class="btn-key">H / ←</span>
+            </button>
+            <button id="btn-whole" class="step-btn whole">
+              <span class="btn-title">WHOLE</span>
+              <span class="btn-sub">2 Semitones</span>
+              <span class="btn-key">W / →</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reveal / Victory Modal Card -->
+      <div id="reveal-modal" class="modal-overlay">
+        <div class="card">
+          <div id="reveal-title" class="card-title">Dorian Mastered!</div>
+          <div id="reveal-tagline" class="card-tagline">
+            "Minor with a raised 6th (B). That's why Dorian feels noble and hopeful rather than gloomy."
+          </div>
+
+          <div class="card-stat-grid">
+            <div class="stat-item">
+              <div id="stat-accuracy" class="stat-val">100%</div>
+              <div class="stat-lbl">Accuracy</div>
+            </div>
+            <div class="stat-item">
+              <div id="stat-box" class="stat-val">Box 2</div>
+              <div class="stat-lbl">Mastery</div>
+            </div>
+            <div class="stat-item">
+              <div id="stat-streak" class="stat-val">🔥 1</div>
+              <div class="stat-lbl">Streak</div>
+            </div>
+          </div>
+
+          <button id="btn-compare-audio" class="secondary-btn">🎧 Hear Dorian vs Natural Minor</button>
+          <button id="btn-next-run" class="primary-btn">Next Expedition →</button>
+        </div>
+      </div>
+
+      <!-- Mastery Map Modal -->
+      <div id="map-modal" class="modal-overlay">
+        <div class="card" style="max-height: 85vh; overflow-y: auto;">
+          <div class="card-title">Mode Worlds Map</div>
+          <div class="card-tagline">7 harmonic worlds ordered by brightness. Master each Leitner box to illuminate them.</div>
+          <div id="map-world-list" style="display: flex; flex-direction: column; gap: 8px;">
+            <!-- Populated dynamically -->
+          </div>
+          <button id="btn-close-map" class="primary-btn">Return to Staircase</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

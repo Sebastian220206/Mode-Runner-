@@ -1,0 +1,16 @@
+{
+  "name": "Mode Runner",
+  "short_name": "ModeRunner",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b091a",
+  "theme_color": "#0b091a",
+  "description": "Synesthetic Pitch Climber & Modal Music Theory Web Game",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
